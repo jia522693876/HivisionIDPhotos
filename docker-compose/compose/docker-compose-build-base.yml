@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  python:
+    container_name: python
+    build:
+      context: .
+      dockerfile: DockerFile_base
+    image: registry.cn-hangzhou.aliyuncs.com/jia_common/python:hivision-id-photos-base-1.0

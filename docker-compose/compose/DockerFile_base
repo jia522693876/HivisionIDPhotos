@@ -1,0 +1,10 @@
+FROM registry.cn-hangzhou.aliyuncs.com/jia_common/python:3.12.8
+
+copy requirements.txt requirements.txt
+copy requirements-app.txt requirements-app.txt
+RUN python -m pip install --upgrade pip
+
+
+# 安装项目依赖
+RUN cd / && pip install --no-cache-dir -i https://repo.huaweicloud.com/repository/pypi/simple/ -r requirements.txt
+RUN cd / && pip install --no-cache-dir -i https://repo.huaweicloud.com/repository/pypi/simple/ -r requirements-app.txt

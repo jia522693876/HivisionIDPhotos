@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  hivision_id_photos:
+    container_name: hivision_id_photos
+    build:
+      context: /HivisionIDPhotos
+      dockerfile: docker-compose/compose/DockerFile
+#      args:
+#        - deploy_info=dev  # 可传递构建参数
+    image: registry.cn-hangzhou.aliyuncs.com/jia_common/hivision_id_photos:1.0.0

@@ -1,5 +1,6 @@
 import argparse
 import os
+import socket
 from demo.processor import IDPhotoProcessor
 from demo.ui import create_ui
 from hivision.creator.choose_handler import HUMAN_MATTING_MODELS
@@ -40,13 +41,23 @@ FACE_DETECT_MODELS_CHOICE = FACE_DETECT_MODELS + FACE_DETECT_MODELS_EXPAND
 
 LANGUAGE = ["zh", "en", "ko", "ja"]
 
+
+def get_host_ip():
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(('8.8.8.8', 80))
+        ip = s.getsockname()[0]
+    finally:
+        s.close()
+    return ip
+
 if __name__ == "__main__":
     argparser = argparse.ArgumentParser()
     argparser.add_argument(
-        "--port", type=int, default=7860, help="The port number of the server"
+        "--port", type=int, default=8080, help="The port number of the server"
     )
     argparser.add_argument(
-        "--host", type=str, default="127.0.0.1", help="The host of the server"
+        "--host", type=str, default=get_host_ip(), help="The host of the server"
     )
     argparser.add_argument(
         "--root_path",

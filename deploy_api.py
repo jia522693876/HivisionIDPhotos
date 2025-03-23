@@ -1,3 +1,5 @@
+import socket
+
 from fastapi import FastAPI, UploadFile, Form, File
 from hivision import IDCreator
 from hivision.error import FaceError
@@ -361,9 +363,17 @@ async def idphoto_crop_inference(
 
     return result_message
 
+def get_host_ip():
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(('8.8.8.8', 80))
+        ip = s.getsockname()[0]
+    finally:
+        s.close()
+    return ip
 
 if __name__ == "__main__":
     import uvicorn
 
     # 在8080端口运行推理服务
-    uvicorn.run(app, host="0.0.0.0", port=8080)
+    uvicorn.run(app, host=get_host_ip(), port=8080)

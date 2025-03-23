@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  hivision_id_photos1:
+    hostname: hivision_id_photos1
+    container_name: hivision_id_photos1
+    image: registry.cn-hangzhou.aliyuncs.com/jia_common/hivision_id_photos:1.0.0
+    environment:
+      #deploy_info: dev
+      host_ip: 192.168.1.51
+      host_port: 9841
+    volumes:
+      - ../file/logs/logs1:/opt/logs
+      - /opt/upFiles:/opt/upFiles
+    ports:
+      - "9841:8080"
+    restart: always
+  hivision_id_photos2:
+    hostname: hivision_id_photos2
+    container_name: hivision_id_photos2
+    image: registry.cn-hangzhou.aliyuncs.com/jia_common/hivision_id_photos:1.0.0
+    environment:
+      #deploy_info: dev
+      host_ip: 192.168.1.51
+      host_port: 9842
+    volumes:
+      - ../file/logs/logs2:/opt/logs
+      - /opt/upFiles:/opt/upFiles
+    ports:
+      - "9842:8080"
+    restart: always

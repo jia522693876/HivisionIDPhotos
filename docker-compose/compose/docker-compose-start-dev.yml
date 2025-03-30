@@ -4,7 +4,7 @@ services:
     hostname: hivision_id_photos1
     container_name: hivision_id_photos1
     image: registry.cn-hangzhou.aliyuncs.com/jia_common/hivision_id_photos:1.0.0
-    environment:
+    #environment:
       #deploy_info: dev
       #host_ip: 192.168.1.51
       #host_port: 9841
@@ -18,7 +18,7 @@ services:
     hostname: hivision_id_photos2
     container_name: hivision_id_photos2
     image: registry.cn-hangzhou.aliyuncs.com/jia_common/hivision_id_photos:1.0.0
-    environment:
+    #environment:
       #deploy_info: dev
       #host_ip: 192.168.1.51
       #host_port: 9842

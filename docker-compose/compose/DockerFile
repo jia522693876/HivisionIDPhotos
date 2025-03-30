@@ -1,5 +1,6 @@
 FROM registry.cn-hangzhou.aliyuncs.com/jia_common/python:hivision-id-photos-base-1.0
 
+RUN pip3 install -i https://repo.huaweicloud.com/repository/pypi/simple/  opencv-python-headless
 
 RUN mkdir /opt/logs -p
 RUN mkdir /opt/upFiles -p
@@ -11,6 +12,7 @@ RUN chmod u+x /data/start.sh
 
 #ADD --chown=myuser ../ /data/project
 ADD ../ /data/project
+
 
 #EXPOSE containerport
 # # 设置环境变量

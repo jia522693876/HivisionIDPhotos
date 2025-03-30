@@ -5,4 +5,3 @@ requests
 mtcnn-runtime
 tqdm
 starlette
-opencv-python-headless
